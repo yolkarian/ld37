@@ -115,9 +115,7 @@ class Game extends hxd.App {
 	var music : hxd.snd.Channel;
 
 	override function init() {
-
-		s2d.setFixedSize(512, 326);
-
+		s2d.scaleMode = h2d.Scene.ScaleMode.Stretch(512, 326);
 
 		rotate = new h2d.Object(s2d);
 		root = new h2d.Layers(rotate);
@@ -206,7 +204,7 @@ class Game extends hxd.App {
 					tx.alpha -= 0.02 * dt;
 					if( tx.colorAdd == null )
 						tx.colorAdd = new h3d.Vector();
-					tx.colorAdd.set(1 - tx.alpha, 1 - tx.alpha, 1 - tx.alpha, 0);
+					tx.colorAdd.set(1 - tx.alpha, 1 - tx.alpha, 1 - tx.alpha);
 
 					blur.radius *= Math.pow(0.95, dt);
 					if( blur.radius < 0.1 ) {
