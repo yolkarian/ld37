@@ -1,0 +1,8 @@
+-cp src
+-cp lib
+-hl ld37.hl
+-D heaps_enable_hl_mp3
+-main Game
+-lib hlsdl
+-lib heaps
+-dce full

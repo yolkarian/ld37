@@ -4,6 +4,7 @@
 	// Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
+
 		{
 			"type": "chrome",
 			"request": "launch",
@@ -14,6 +15,16 @@
 				"type" : "haxe",
 				"args" : "active configuration"
 			}
-		}
+		},
+		{
+            "name": "HashLink",
+            "request": "launch",
+            "type": "hl",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": {
+                "type": "haxe",
+                "args": "active configuration"
+            }
+        }
 	]
 }
