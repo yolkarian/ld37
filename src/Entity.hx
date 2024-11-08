@@ -15,8 +15,10 @@ class Entity {
 
 	public function play(a, ?s = 12., ?onEnd) {
 		if( a == null ) a = [h2d.Tile.fromColor(0, 0, 0)];
+		// anim is used to display a sequence of tiles on the screen
 		anim.play(a);
 		anim.speed = s;
+		// By default the frames will be played in loop
 		anim.onAnimEnd = onEnd == null ? function() {} : onEnd;
 	}
 
@@ -42,14 +44,17 @@ class Entity {
 		if( game.hero.anim.scaleX < 0 )
 			ix = f.iwidth - ix;
 
-
+		// check hit with the bounding box of the entity
 		if( ix < 0 || ix >= f.width )
 			return false;
 		if( iy < 0 || iy >= f.height )
 			return false;
+
+		// Grid based hit checking
 		if( (game.bitmap.getPixel(f.ix + ix, f.iy + iy) >>> 24) == 0 )
 			return false;
-
+		
+		// TODO: what do dx and dy represent? orientation
 		game.hero.die(hx + ix, hy + iy, dx, dy);
 
 		return true;
