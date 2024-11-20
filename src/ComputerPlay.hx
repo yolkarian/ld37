@@ -40,8 +40,8 @@ class ComputerPlay extends Entity {
 			return false;
 		});
 		input = new h2d.TextInput(tf.font, anim);
-		@:privateAccess input.interactive.visible = false;
-		input.visible = false;
+		@:privateAccess input.interactive.visible = true;
+		input.visible = true;
 		input.onChange = function() {
 			hxd.Res.keyb.play();
 		};
@@ -159,9 +159,11 @@ class ComputerPlay extends Entity {
 							pr("Door not found", function() game.event.wait(1, function() pr("Erasing curious subject.", function() game.hero.die())));
 						} else {
 							game.door.open = true;
-
-							for( x in 0...30 )
-								for( y in 0...80 )
+							
+							// Increase movable space such that the player can go through to door
+							// To solve why sometimes outbound error can happen? (The original code)
+							for( x in 0...20 )
+								for( y in 0...50 )
 									game.collide.setPixel(x + 210, y + 260, 0);
 
 							game.hasUnlock = true;
@@ -184,7 +186,7 @@ class ComputerPlay extends Entity {
 									});
 									function loop2() {
 										if( game.hero.state != Move ) return;
-										game.rotateRoom(loop2,-1);
+										// game.rotateRoom(loop2,-1);
 									}
 									loop2();
 								});

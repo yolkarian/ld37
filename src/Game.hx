@@ -556,7 +556,7 @@ class Game extends hxd.App {
 		var speed = 0.03;
 
 		if( way < 0 )
-			speed *= 0.4;
+			speed *= 0.01;
 
 		var done = false;
 		var chan = hxd.Res.rotate.play();

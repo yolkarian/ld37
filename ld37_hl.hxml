@@ -4,5 +4,6 @@
 -D heaps_enable_hl_mp3
 -main Game
 -lib hlsdl
+-lib hlopenal
 -lib heaps
 -dce full
