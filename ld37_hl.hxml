@@ -1,9 +1,21 @@
 -cp src
 -cp lib
--hl ld37.hl
 -D heaps_enable_hl_mp3
 -main Game
--lib hlsdl
--lib hlopenal
 -lib heaps
 -dce full
+
+--each
+
+-hl ld37.hl
+-lib hlopenal
+-lib hlsdl
+
+--next
+
+-hl ld37.hl
+-lib hldx
+-lib hlopenal
+-D dx12  
+# currently if for debug comment this line
+-D hl-ver=1.13.0

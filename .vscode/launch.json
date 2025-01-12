@@ -21,10 +21,12 @@
             "request": "launch",
             "type": "hl",
             "cwd": "${workspaceFolder}",
+			"program": "ld37.hl",
             "preLaunchTask": {
                 "type": "haxe",
-                "args": "active configuration"
-            }
+                "args": "active configuration",
+            },
+			
         }
 	]
 }
